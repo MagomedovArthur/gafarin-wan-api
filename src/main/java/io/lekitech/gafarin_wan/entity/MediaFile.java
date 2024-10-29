@@ -1,4 +1,4 @@
-package org.lekitech.gafalag.entity;
+package io.lekitech.gafarin_wan.entity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.UUID;
 

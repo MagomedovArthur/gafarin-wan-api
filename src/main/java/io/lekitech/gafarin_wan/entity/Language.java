@@ -1,4 +1,4 @@
-package org.lekitech.gafalag.entity;
+package io.lekitech.gafarin_wan.entity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -7,7 +7,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
@@ -38,19 +39,8 @@ public class Language {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    //  - relations
-
-    @OneToMany(mappedBy = "language", cascade = CascadeType.PERSIST)
-    private Set<GrammaticalCase> grammaticalCases = new HashSet<>();
-
     @OneToMany(mappedBy = "language", cascade = CascadeType.PERSIST)
     private Set<Dialect> dialects = new HashSet<>();
-
-    @OneToMany(mappedBy = "srcLanguage", cascade = CascadeType.PERSIST)
-    private Set<Example> examplesSrc = new HashSet<>();
-
-    @OneToMany(mappedBy = "trlLanguage", cascade = CascadeType.PERSIST)
-    private Set<Example> examplesTrl = new HashSet<>();
 
     @OneToMany(mappedBy = "language", cascade = CascadeType.PERSIST)
     private Set<Expression> expressions = new HashSet<>();

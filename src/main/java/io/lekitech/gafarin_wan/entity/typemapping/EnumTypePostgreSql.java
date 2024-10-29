@@ -1,4 +1,4 @@
-package org.lekitech.gafalag.entity.typemapping;
+package io.lekitech.gafarin_wan.entity.typemapping;
 
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;

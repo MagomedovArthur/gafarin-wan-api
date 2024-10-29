@@ -1,5 +1,6 @@
-package org.lekitech.gafalag.entity;
+package io.lekitech.gafarin_wan.entity;
 
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,13 +8,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Getter
@@ -42,18 +38,8 @@ public class Expression {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    // - relations
-
     @OneToMany(mappedBy = "expression", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private Set<MediaFile> mediaFiles = new HashSet<>();
-
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "expression_match_details",
-            joinColumns = @JoinColumn(name = "expression_id"),
-            inverseJoinColumns = @JoinColumn(name = "expression_details_id")
-    )
-    private List<ExpressionDetails> expressionDetails = new ArrayList<>();
 
     public Expression(String spelling,
                       Language language) {
