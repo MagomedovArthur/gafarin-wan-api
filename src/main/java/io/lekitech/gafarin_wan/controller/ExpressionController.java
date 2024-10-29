@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/api/expression")
 @RequiredArgsConstructor
 public class ExpressionController {
 
     private final ExpressionService expressionService;
 
-    @GetMapping(path = "/get-random-word")
+    @GetMapping(path = "/get-random")
     public ResponseEntity<ExpressionDto> getRandomExpression() {
         final ExpressionDto expression = expressionService.getRandomExpression();
         return ResponseEntity.ok(expression);
